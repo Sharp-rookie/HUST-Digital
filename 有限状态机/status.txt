@@ -1,0 +1,63 @@
+`timescale 1ns / 1ps
+
+module Statu(y, en, m, clk_100M);
+	input m, en, clk_100M;
+	output[2:0] y;
+	reg[2:0] y;
+	reg[15:0] count1;
+	reg[8:0] count2;
+	reg clk_1khz, clk_1hz;
+	//变量说明：
+	//y为状态值，en为高有效使能，m为输入，clk_100M为100M的时钟信号
+	//count1和count2是分频器计的数变量，clk_1khz和clk_1hz是分频器的输出
+	
+	//中间变量必须初始化
+	initial 
+		begin
+			y = 3'b111;
+			clk_1khz = 0;
+			clk_1hz = 0;
+			count1 = 0;
+			count2 = 0;
+		end
+
+	//100M 100000分频得到1khz
+	always@(posedge clk_100M)
+		begin
+			if(count1 == 16'd49999)
+				begin
+					clk_1khz <= ~clk_1khz;
+					count1 <= 0;
+				end
+			else count1 <= count1 + 1;
+		end
+	
+	//1khz 1000分频得到1hz
+	always@(posedge clk_1khz)
+		begin
+			if(count2 == 9'd499)
+				begin
+					clk_1hz <= ~clk_1hz;
+					count2 <= 0;
+				end
+			else count2 <= count2 + 1;
+		end
+		
+	//状态机
+	always@(posedge clk_1hz)
+		begin
+			if(en == 1)
+				case(y)
+					3'b111: y <= 3'b000;
+					3'b000: y <= 3'b110;
+					3'b110: y <= m==1? 3'b100 : 3'b010;
+					3'b100: y <= m==1? 3'b101 : 3'b110;
+					3'b101: y <= m==1? 3'b001 : 3'b100;
+					3'b001: y <= m==1? 3'b011 : 3'b101;
+					3'b011: y <= m==1? 3'b010 : 3'b001;
+					3'b010: y <= m==1? 3'b110 : 3'b011;
+				endcase
+			else y <= 0;
+		end
+
+endmodule 

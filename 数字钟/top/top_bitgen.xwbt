@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\hp\Desktop\top\top.ncd
+OUTFILE=C:\Users\hp\Desktop\top\top.bit
+FAMILY=Artix7
+PART=xc7a100t-3csg324
+WORKINGDIR=C:\Users\hp\Desktop\top
+LICENSE=WebPack
+USER_INFO=__0_0_0

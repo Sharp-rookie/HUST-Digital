@@ -1,0 +1,25 @@
+`timescale 1ns / 1ps
+
+module decoder3_8_03(en, addr, y);
+	input[2:0] en, addr;
+	output[7:0] y;
+	wire[7:0] y;
+	wire n0, n1, n;
+	wire[2:0] abar;
+
+	not (n0, en[0]);
+	not (n1, en[1]);
+	and (n, n0, n1, en[2]);
+	not (abar[0], addr[0]);
+	not (abar[1], addr[1]);
+	not (abar[2], addr[2]);
+	and (y[0], n, abar[0], abar[1], abar[2]);
+	and (y[1], n, addr[0], abar[1], abar[2]);
+	and (y[2], n, abar[0], addr[1], abar[2]);
+	and (y[3], n, addr[0], addr[1], abar[2]);
+	and (y[4], n, abar[0], abar[1], addr[2]);
+	and (y[5], n, addr[0], abar[1], addr[2]);
+	and (y[6], n, abar[0], addr[1], addr[2]);
+	and (y[7], n, addr[0], addr[1], addr[2]);
+
+endmodule

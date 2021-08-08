@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+
+module test_time_count;
+
+	// Inputs
+	reg clk;
+
+	// Outputs
+	wire [3:0] s0;
+	wire [3:0] s1;
+	wire [3:0] m0;
+	wire [3:0] m1;
+	wire [3:0] h0;
+	wire [3:0] h1;
+
+	// Instantiate the Unit Under Test (UUT)
+	time_count uut (
+		.clk(clk), 
+		.s0(s0), 
+		.s1(s1), 
+		.m0(m0), 
+		.m1(m1), 
+		.h0(h0), 
+		.h1(h1)
+	);
+
+	initial clk = 0;
+	always #1 clk = ~clk;
+      
+endmodule

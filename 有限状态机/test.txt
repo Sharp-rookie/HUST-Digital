@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+
+module test;
+
+	// Inputs
+	reg en;
+	reg m;
+	reg clk_100M;
+	reg count1, count2, clk_1khz, clk_1hz;
+
+	// Outputs
+	wire [2:0] y;
+
+	Statu uut (
+		.y(y), 
+		.en(en), 
+		.m(m), 
+		.clk_100M(clk_100M)
+	);
+
+	//初始化
+	initial
+		begin
+		en = 1;
+			m = 0;
+			clk_100M = 0;
+			count1 = 0;
+			count2 = 0;
+			clk_1khz = 0;
+			clk_1hz = 0;
+		end
+	//100M时钟信号
+	always #50 clk_100M = ~clk_100M;
+	always #850 m = 1;
+
+endmodule 

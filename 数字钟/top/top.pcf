@@ -1,0 +1,33 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Apr 20 14:24:50 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "en_clock" LOCATE = SITE "J15" LEVEL 1;
+COMP "seg<0>" LOCATE = SITE "T10" LEVEL 1;
+COMP "clock_alarm_set" LOCATE = SITE "R15" LEVEL 1;
+COMP "seg<1>" LOCATE = SITE "R10" LEVEL 1;
+COMP "seg<2>" LOCATE = SITE "K16" LEVEL 1;
+COMP "seg<3>" LOCATE = SITE "K13" LEVEL 1;
+COMP "seg<4>" LOCATE = SITE "P15" LEVEL 1;
+COMP "seg<5>" LOCATE = SITE "T11" LEVEL 1;
+COMP "seg<6>" LOCATE = SITE "L18" LEVEL 1;
+COMP "clk_100m" LOCATE = SITE "E3" LEVEL 1;
+COMP "min_hour_set" LOCATE = SITE "R17" LEVEL 1;
+COMP "clock_adjust" LOCATE = SITE "L16" LEVEL 1;
+COMP "clock_alarm_en" LOCATE = SITE "M13" LEVEL 1;
+COMP "day" LOCATE = SITE "K15" LEVEL 1;
+COMP "cr" LOCATE = SITE "U18" LEVEL 1;
+COMP "alarm" LOCATE = SITE "H17" LEVEL 1;
+COMP "pos<0>" LOCATE = SITE "J17" LEVEL 1;
+COMP "pos<1>" LOCATE = SITE "J18" LEVEL 1;
+COMP "pos<2>" LOCATE = SITE "T9" LEVEL 1;
+COMP "pos<3>" LOCATE = SITE "J14" LEVEL 1;
+COMP "pos<4>" LOCATE = SITE "P14" LEVEL 1;
+COMP "day_night" LOCATE = SITE "R13" LEVEL 1;
+COMP "pos<5>" LOCATE = SITE "T14" LEVEL 1;
+COMP "pos<6>" LOCATE = SITE "K2" LEVEL 1;
+COMP "pos<7>" LOCATE = SITE "U13" LEVEL 1;
+COMP "alarm_adjust_disp" LOCATE = SITE "T18" LEVEL 1;
+SCHEMATIC END;
+

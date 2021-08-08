@@ -1,0 +1,19 @@
+`timescale 1ns / 1ps
+
+module decoder3_8_02(en, addr, y);
+	input[2:0] en, addr;
+	output[7:0] y;
+	wire[7:0] y;
+	wire w;
+
+	assign w = ~en[0] & ~en[1] & en[2];
+	assign y[0] = w & ~addr[0] & ~addr[1] & ~addr[2];
+	assign y[1] = w & addr[0]  & ~addr[1] & ~addr[2];
+	assign y[2] = w & ~addr[0] & addr[1]  & ~addr[2];
+	assign y[3] = w & addr[0]  & addr[1]  & ~addr[2];
+	assign y[4] = w & ~addr[0] & ~addr[1] &  addr[2];
+	assign y[5] = w & addr[0]  & ~addr[1] &  addr[2];
+	assign y[6] = w & ~addr[0] & addr[1]  &  addr[2];
+	assign y[7] = w & addr[0]  & addr[1]  &  addr[2];
+
+endmodule
